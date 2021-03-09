@@ -1,28 +1,29 @@
 # coding:utf-8
-import pytest
-import sys
 import os
+import sys
+
 import allure
-import json
+import pytest
+from pactverify.matchers import Like, EachLike, PactVerify
+
+from util.handle_apirequest import apiRequest
+from util.handle_comparators import comparatorsTest
+from util.handle_init import handle_ini
+from util.handle_json import handle_jsonData
+from util.handle_log import run_log as logger
 
 curPath = os.path.abspath(os.path.dirname(__file__))
 root_path = os.path.abspath(os.path.dirname(curPath) + os.path.sep + "../")
 sys.path.append(root_path)
 os.chdir(root_path)
 
-from util.handle_json import handle_jsonData
-from util.handle_init import handle_ini
-from util.handle_log import run_log as logger
-from util.handle_apirequest import apiRequest
-from pactverify.matchers import Matcher, Like, EachLike, Term, Enum, PactVerify
-from util.handle_comparators import comparatorsTest
-
 baseurl = handle_ini.get_value('apiurl', 'imooc')
 baseFileName = root_path + '/test_data/jsondata/testRequest/getRequest.json'
 testCaseData = handle_jsonData.load_json(baseFileName)
 
+
 @allure.feature('测试GET请求模块')
-class TestRequestOne():
+class TestRequestOne:
     @allure.title('测试标题')
     @allure.testcase('测试地址：https://www.imooc.com')
     @pytest.mark.parametrize('case_data', testCaseData['testcase'])

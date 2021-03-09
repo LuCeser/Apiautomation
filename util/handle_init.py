@@ -1,13 +1,11 @@
 # coding=utf-8
-import sys
-import os
 import configparser
+import os
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
-curPath = os.path.abspath(os.path.dirname(__file__))
-BasePath = curPath[:curPath.find("Apiautomation\\") + len("Apiautomation\\")]
 from util.handle_log import run_log as logger
+
+curPath = os.path.abspath(os.path.dirname(__file__))
+BasePath = curPath[:curPath.find("Apiautomation/") + len("Apiautomation/")]
 
 
 class HandleInit:
@@ -20,7 +18,7 @@ class HandleInit:
 
     # 获取ini里面对应key的value
     def get_value(self, key, node=None):
-        if node == None:
+        if node is None:
             node = 'Test'
         cf = self.load_ini()
         try:
@@ -33,6 +31,3 @@ class HandleInit:
 
 
 handle_ini = HandleInit()
-# if __name__ == "__main__":
-#     he =  HandleInit()
-#     print(he.get_value('apiurl','imooc'))

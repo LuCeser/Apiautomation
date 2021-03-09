@@ -1,12 +1,11 @@
 # coding:utf-8
-import xlrd
-from xlutils.copy import copy
-import sys
 import os
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
+import xlrd
+from xlutils.copy import copy
+
 curPath = os.path.abspath(os.path.dirname(__file__))
+
 
 class OperationExcel:
     def __init__(self, file_name=None, sheet_id=None):
@@ -35,10 +34,10 @@ class OperationExcel:
 
     # 写入数据
     def write_value(self, row, col, value):
-        '''
+        """
         写入excel数据
         row,col,value
-        '''
+        """
         read_data = xlrd.open_workbook(self.file_name)
         write_data = copy(read_data)
         sheet_data = write_data.get_sheet(0)
@@ -68,7 +67,7 @@ class OperationExcel:
 
     # 获取某一列的内容
     def get_cols_data(self, col_id=None):
-        if col_id != None:
+        if col_id is not None:
             cols = self.data.col_values(col_id)
         else:
             cols = self.data.col_values(0)

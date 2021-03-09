@@ -1,13 +1,13 @@
 # coding:utf-8
 import requests
-import allure
-import json
+
 from util.handle_log import run_log as logger
 
 
 class BaseRequest:
 
-    def send_get(self, url, data, header=None, cookie=None):
+    @staticmethod
+    def send_get(url, data, header=None, cookie=None):
         """
         Requests发送Get请求
         :param url：请求地址
@@ -18,7 +18,8 @@ class BaseRequest:
         response = requests.get(url=url, params=data, cookies=cookie, headers=header)
         return response
 
-    def send_post(self, url, data, header=None, cookie=None):
+    @staticmethod
+    def send_post(url, data, header=None, cookie=None):
         """
         Requests发送Post请求
         :param url：请求地址

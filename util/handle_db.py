@@ -1,13 +1,15 @@
-import pymysql
 import json
-import sys
 import os
+import sys
+
+import pymysql
+
+from util.handle_init import handle_ini
+from util.handle_log import run_log as logger
 
 sys.path.append('../')
 sys.path.append('D:/ApiAuto/Apiautomation')
 curPath = os.path.abspath(os.path.dirname(__file__))
-from util.handle_init import handle_ini
-from util.handle_log import run_log as logger
 
 
 class Handledb:

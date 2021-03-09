@@ -1,17 +1,14 @@
 # coding=utf-8
-import sys
 import json
 import os
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
 curPath = os.path.abspath(os.path.dirname(__file__))
 
 
 class HandleJson:
     # 读取json文件
     def load_json(self, file_name):
-        if file_name == None:
+        if file_name is None:
             file_path = ""
         else:
             file_path = file_name
@@ -25,19 +22,14 @@ class HandleJson:
 
     # 读取json文件里具体的字段值
     def getJson_value(self, key, file_name):
-        if file_name == None:
+        if file_name is None:
             return ""
-        jsonData = self.load_json(file_name)
-        if key == None:
-            getJsonValue = ""
+        json_data = self.load_json(file_name)
+        if key is None:
+            json_value = ""
         else:
-            getJsonValue = jsonData.get(key)
-        return getJsonValue
+            json_value = json_data.get(key)
+        return json_value
 
 
 handle_jsonData = HandleJson()
-# if __name__ == "__main__":
-#     hjson = HandleJson()
-#     params = hjson.getJson_value(
-#         "params", '/ApiTestProject/Apiautomation/test_data/jsondata/getrequest.json')
-#     print(params)

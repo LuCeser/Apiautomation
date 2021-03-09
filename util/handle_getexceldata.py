@@ -1,12 +1,10 @@
 # coding:utf-8
-from util.handle_exceldata import OperationExcel
-from util.handle_excelconfig import *
-import sys
-import os
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
+from util.handle_excelconfig import *
+from util.handle_exceldata import OperationExcel
+
 curPath = os.path.abspath(os.path.dirname(__file__))
+
 
 class GetData:
     def __init__(self, file_name, sheet_id):

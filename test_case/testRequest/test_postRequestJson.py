@@ -1,21 +1,21 @@
 # coding:utf-8
-import pytest
-import json
-import sys
 import os
+import sys
+
 import allure
+import pytest
+from pactverify.matchers import Like, PactVerify
+
+from util.handle_apirequest import apiRequest
+from util.handle_comparators import comparatorsTest
+from util.handle_init import handle_ini
+from util.handle_json import handle_jsonData
+from util.handle_log import run_log as logger
 
 curPath = os.path.abspath(os.path.dirname(__file__))
 root_path = os.path.abspath(os.path.dirname(curPath) + os.path.sep + "../")
 sys.path.append(root_path)
 os.chdir(root_path)
-
-from util.handle_json import handle_jsonData
-from util.handle_init import handle_ini
-from util.handle_log import run_log as logger
-from util.handle_apirequest import apiRequest
-from pactverify.matchers import Matcher, Like, EachLike, Term, Enum, PactVerify
-from util.handle_comparators import comparatorsTest
 
 baseurl = handle_ini.get_value('baidufanyiurl', 'baidu')
 baseFileName = root_path + '/test_data/jsondata/testRequest/postRequest.json'
@@ -62,7 +62,3 @@ class TestRequestOne():
 
 # 调用class
 TestRequestOne()
-
-# if __name__ == "__main__":
-#     pytest.main(['-s', '-v', 'test_postRequestJson.py', '-q', '--alluredir', '../../reports/result'])
-#     # pytest.main(['-v', 'test_postRequestJson.py'])

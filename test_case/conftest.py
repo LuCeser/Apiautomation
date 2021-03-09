@@ -13,6 +13,3 @@ def login():
     print("所有测试文件执行测试开始".center(30, '*'))
     yield
     print("所有测试文件执行测试结束".center(30, '*'))
-
-
-

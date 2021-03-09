@@ -1,16 +1,15 @@
 # coding=utf-8
-import sys
-import yaml
 import os
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
+import yaml
+
 curPath = os.path.abspath(os.path.dirname(__file__))
+
 
 class HandleYaml:
     # 读取yaml文件
     def load_yaml(self, file_name):
-        if file_name == None:
+        if file_name is None:
             file_path = ""
         else:
             file_path = file_name
@@ -24,14 +23,10 @@ class HandleYaml:
 
     # 读取yaml文件里具体的字段值
     def getYaml_Data(self, file_name):
-        if file_name == None:
+        if file_name is None:
             return ""
-        yamlData = self.load_yaml(file_name)
-        return yamlData
+        yaml_data = self.load_yaml(file_name)
+        return yaml_data
 
 
 handle_YamlData = HandleYaml()
-# if __name__ == "__main__":
-#     hyaml = HandleYaml()
-#     params = hyaml.getYaml_value('../test_data/yamldata/getRequest.yml')
-#     print(params)

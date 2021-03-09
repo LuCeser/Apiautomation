@@ -1,14 +1,13 @@
 # coding:utf-8
-import sys
 import os
+
 import allure
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
-curPath = os.path.abspath(os.path.dirname(__file__))
-BasePath = curPath[:curPath.find("Apiautomation\\") + len("Apiautomation\\")]
 from base.base_request import baseRequest
 from util.handle_log import run_log as logger
+
+curPath = os.path.abspath(os.path.dirname(__file__))
+BasePath = curPath[:curPath.find("Apiautomation\\") + len("Apiautomation\\")]
 
 
 class ApiRequest:

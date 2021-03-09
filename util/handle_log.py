@@ -1,14 +1,12 @@
 # coding=utf-8
 import os
-import sys
-import logbook
-import os
 
-sys.path.append('../')
-sys.path.append('D:/ApiAuto/Apiautomation')
+import logbook
+
 curPath = os.path.abspath(os.path.dirname(__file__))
-BasePath = curPath[:curPath.find("Apiautomation\\") + len("Apiautomation\\")]
-from logbook import Logger, StreamHandler, FileHandler, TimedRotatingFileHandler
+BasePath = curPath[:curPath.find("Apiautomation/") + len("Apiautomation/")]
+
+from logbook import Logger, TimedRotatingFileHandler
 from logbook.more import ColorizedStderrHandler
 
 
@@ -60,6 +58,3 @@ debug	    调试程序时详细输出的记录
 '''
 # 实例化，默认调用
 logger = init_logger()
-
-# if __name__ == "__main__":
-#     run_log.info("测试日志模块")

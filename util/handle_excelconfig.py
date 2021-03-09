@@ -1,10 +1,11 @@
 # coding:utf-8
-import sys
 import os
+import sys
 
 sys.path.append('../')
 sys.path.append('D:/ApiAuto/Apiautomation')
 curPath = os.path.abspath(os.path.dirname(__file__))
+
 
 class global_var:
     Id = '0'
