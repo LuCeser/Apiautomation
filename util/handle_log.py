@@ -4,7 +4,7 @@ import os
 import logbook
 
 curPath = os.path.abspath(os.path.dirname(__file__))
-BasePath = curPath[:curPath.find("Apiautomation/") + len("Apiautomation/")]
+BasePath = curPath[:curPath.find("Apiautomation") + len("Apiautomation")]
 
 from logbook import Logger, TimedRotatingFileHandler
 from logbook.more import ColorizedStderrHandler
@@ -23,7 +23,7 @@ def log_type(record, handler):
 
 
 # 日志存放路径
-LOG_DIR = BasePath + '/log'
+LOG_DIR = BasePath + '/logs'
 print(LOG_DIR)
 if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR)

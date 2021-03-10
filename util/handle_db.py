@@ -19,7 +19,7 @@ class Handledb:
         self.connectiondatabase()
 
     def __del__(self):
-        if (self.__db is not None):
+        if self.__db is not None:
             self.__db.close()
 
     def connectiondatabase(self):
@@ -68,11 +68,7 @@ class Handledb:
         except Exception as e:
             logger.error("execute failed：" + sql + params)
             logger.error(e)
-            return (e)
+            return e
 
 
 handle_db = Handledb()
-# if __name__ == "__main__":
-#     handledb = Handledb()
-#     sql = "UPDATE mytest.myname set mytest.myname.name = 'iiii' WHERE mytest.myname.id=3"
-#     result = handledb.execute(sql)

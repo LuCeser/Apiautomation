@@ -13,7 +13,7 @@ class comparators():
             assert result_data[check] == expect
 
     def comparators_Assert(self, result, check, comparator, expect):
-        if (comparator in ["eq", "equals", "equal"]):
+        if comparator in ["eq", "equals", "equal"]:
             self.assertEqual(result, check, expect)
 
 

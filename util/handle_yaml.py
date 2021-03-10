@@ -8,7 +8,8 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 
 class HandleYaml:
     # 读取yaml文件
-    def load_yaml(self, file_name):
+    @staticmethod
+    def load_yaml(file_name):
         if file_name is None:
             file_path = ""
         else:

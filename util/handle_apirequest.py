@@ -7,11 +7,12 @@ from base.base_request import baseRequest
 from util.handle_log import run_log as logger
 
 curPath = os.path.abspath(os.path.dirname(__file__))
-BasePath = curPath[:curPath.find("Apiautomation\\") + len("Apiautomation\\")]
+BasePath = curPath[:curPath.find("Apiautomation") + len("Apiautomation")]
 
 
 class ApiRequest:
-    def api_request(self, base_url, test_case_data, case_data):
+    @staticmethod
+    def api_request(base_url, case_config, case_data):
         get_name = None
         get_url = None
         get_method = None
@@ -21,11 +22,11 @@ class ApiRequest:
         get_case_params = None
         response_data = None
         try:
-            get_name = test_case_data['config']['name']
-            get_url = base_url + test_case_data['config']['url']
-            get_method = test_case_data['config']['method']
-            get_headers = test_case_data['config']['headers']
-            get_cookies = test_case_data['config']['cookies']
+            get_name = case_config['name']
+            get_url = base_url + case_config['url']
+            get_method = case_config['method']
+            get_headers = case_config['headers']
+            get_cookies = case_config['cookies']
         except Exception as e:
             logger.exception('获取用例基本信息失败，{}'.format(e))
         try:

@@ -7,7 +7,8 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 
 class HandleJson:
     # 读取json文件
-    def load_json(self, file_name):
+    @staticmethod
+    def load_json(file_name):
         if file_name is None:
             file_path = ""
         else:

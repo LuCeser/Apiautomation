@@ -52,7 +52,7 @@ class GetData:
         return data
 
     # 获取预期结果
-    def get_expcet_data(self, row):
+    def get_expect_data(self, row):
         col = int(get_expect())
         expect = self.opera_excel.get_cell_value(row, col)
         if expect == '':
