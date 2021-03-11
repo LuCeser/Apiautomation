@@ -2,12 +2,11 @@
 import os
 
 import logbook
+from logbook import Logger, TimedRotatingFileHandler
+from logbook.more import ColorizedStderrHandler
 
 curPath = os.path.abspath(os.path.dirname(__file__))
 BasePath = curPath[:curPath.find("Apiautomation") + len("Apiautomation")]
-
-from logbook import Logger, TimedRotatingFileHandler
-from logbook.more import ColorizedStderrHandler
 
 
 def log_type(record, handler):

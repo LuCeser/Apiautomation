@@ -1,15 +1,12 @@
+import os
+
 import pytest
 
+from util.handle_init import handle_ini
 
-@pytest.fixture()
-def actionForClass():
-    print("测试类执行测试开始".center(30, '*'))
-    yield
-    print("测试类执行测试结束".center(30, '*'))
+cur_path = os.path.abspath(os.path.dirname(__file__))
 
 
 @pytest.fixture(scope="session")
-def login():
-    print("所有测试文件执行测试开始".center(30, '*'))
-    yield
-    print("所有测试文件执行测试结束".center(30, '*'))
+def get_node_ip():
+    return handle_ini.get_value('node', 'environment')
