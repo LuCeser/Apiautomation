@@ -31,7 +31,18 @@ class BaseRequest:
         response = requests.post(url=url, json=data, cookies=cookie, headers=header)
         return response
 
-        # 主函数调用
+    @staticmethod
+    def send_put(url, data, header=None, cookie=None):
+        """
+        Requests发送Put请求
+        :param url：请求地址
+        :param data：Put请求参数
+        :param data：Put请求参数
+        :param cookie：cookie参数
+        :param header：header参数
+        """
+        response = requests.put(url=url, json=data, cookies=cookie, headers=header)
+        return response
 
     def run_main(self, method, url, data, header, cookie=None):
         try:
@@ -39,7 +50,9 @@ class BaseRequest:
             if method.upper() == 'GET':
                 result = self.send_get(url, data, header, cookie)
             elif method.upper() == 'POST':
-                result = self.send_post(url, data, header, cookie)
+                result = self.send_post(url, data['body'], header, cookie)
+            elif method.upper() == 'PUT':
+                result = self.send_put(url, data['body'], header, cookie)
             return result
         except Exception as e:
             logger.exception('请求主函数调用失败：{}'.format(e))
