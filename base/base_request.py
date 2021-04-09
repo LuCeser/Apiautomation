@@ -44,6 +44,19 @@ class BaseRequest:
         response = requests.put(url=url, json=data, cookies=cookie, headers=header)
         return response
 
+    @staticmethod
+    def send_patch(url, data, header=None, cookie=None):
+        """
+        Requests发送Patch请求
+        :param url：请求地址
+        :param data：Patch请求参数
+        :param data：Patch请求参数
+        :param cookie：cookie参数
+        :param header：header参数
+        """
+        response = requests.patch(url=url, json=data, cookies=cookie, headers=header)
+        return response
+
     def run_main(self, method, url, data, header, cookie=None):
         try:
             result = ''
@@ -53,6 +66,9 @@ class BaseRequest:
                 result = self.send_post(url, data['body'], header, cookie)
             elif method.upper() == 'PUT':
                 result = self.send_put(url, data['body'], header, cookie)
+            elif method.upper() == 'PATCH':
+                result = self.send_patch(url, data['body'], header, cookie)
+
             return result
         except Exception as e:
             logger.exception('请求主函数调用失败：{}'.format(e))
